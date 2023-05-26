@@ -1,0 +1,772 @@
+<link rel="stylesheet" href="./style.css">
+<hr />
+<h1 class="center"><strong>Pixel Art User Guide</strong></h1>
+<hr />
+<p>
+    This document is intended to assist individuals who are less gifted with artistic skills.
+    You have the opportunity to transform a picture of your choice into Pixel Art, and with the help of this guide,
+    you can easily create this artwork in reality on any surface and using any technique.
+</p>
+<p>
+    The configuration parameters will be explained to show the results you can achieve by modifying them.
+    There's no need to worry if you're not successful. I'll provide assistance in finding the ideal values. The pre-defined values provide a good starting point.
+    All you have to do is select an image and follow the instructions step by step.
+    You'll also gain insight into the underlying processes, allowing you to create truly impressive artworks.
+</p>
+
+<hr/>
+<div class="center">
+    <h2 class="top">Step #1</h2>
+    <h4>Preprocessing your image</h4>
+</div>
+
+<table>
+    <tr>
+        <td class="center half">
+            This is the original image. You can set the file name with the <strong>"path"</strong> parameter. Currently, it has a resolution of <strong>590x590</strong> pixels.
+            For creating pixel art, it is advisable to use an image with strong, clear lines and no blurring.
+            For example, a clean graphic will yield better results than a crowded photograph.
+        </td>
+        <td>
+            <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/original.png" alt="Image">
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<p>
+    As a first step, we resize the presumably large image. You can perform the resizing using the <strong>"scale"</strong>
+    parameter. This is a percentage value that determines the reduction in size. For example, if you set it
+    to 50, it means the image will be half its original size. The aspect ratio of the image will be preserved!
+</p>
+<table>
+    <tr>
+        <td class="center half">
+            With the chosen <strong>11%</strong> reduction value, the image currently has a resolution of <strong>64x64</strong> pixels. (Now it is <strong>11%</strong> of the original size)
+            This reduction determines the level of pixelation, meaning that the higher the value, the smaller and more pixelated the image will be.
+            Choose a value that you are satisfied with.
+        </td>
+        <td>
+            <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/resized.png" alt="Image">
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<p>
+    During the previous processes, it is possible that the colors have become dull and the image may appear monotonous.
+    In pixel art, it is common to use contrasting colors to enhance the recognition of each motif at the lowest possible resolution.
+</p>
+<table>
+    <tr>
+        <td class="center half">
+            Using the <strong>1.1</strong> contrast value, you can see the image here. The value of 1.0 represents the original state, and you can increase it by decimal increments.
+            The higher the number, the more contrast the image will have. Even a small decimal change can make a significant difference, so be cautious when adjusting the values.
+        </td>
+        <td>
+            <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/contrasted.png" alt="Image">
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<p>
+    In its current state, the pixelated image may consist of numerous colors, and in some cases, the difference between two pixels' colors may be so small
+    that it's not noticeable to the human eye. To avoid working with a wide range of colors during the creation process, you have the option to reduce these
+    occurrences here.
+</p>
+<table>
+    <tr>
+        <td class="center half">
+            After the previous processing, the processed image had <strong>3862</strong> different colors. The set value is <strong>30</strong>, which measns the entire
+            image is composed of only that many colors. Keep in mind that reducing the number of colors can result in the loss of details, so finding
+            the ideal value is up to you. I recommend starting with a smaller value and gradually increasing it until you are satisfied with the result.
+        </td>
+        <td>
+            <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/reduced.png" alt="Image">
+        </td>
+    </tr>
+</table>
+<hr/>
+
+<div class="center">
+    <h2 class="top">Step #2</h2>
+    <h4>preparing your canvas</h4>
+</div>
+
+<p>
+    After the preprocessing is done, it's time to prepare your canvas. As mentioned before, you can create your artwork on any surface,
+    you just need to measure it and apply the template. You can even print out this grid and work directly with it. The template consists
+    of a grid structure with numbers placed within it. Each number represents a color that you need to apply to the corresponding positions.
+    You will see the color numbering in the following steps. I would like to draw your attention to the interesting fact that even from the
+    placement of the numbers, your image can already be discerned.
+</p>
+<p style="color: red;">
+    Please measure the width and height of your canvas and provide these values in millimeters for the <strong>"canvas_w"</strong> and <strong>"canvas_h"</strong> parameters.
+    The currently determined size of the canvas is <strong>500x500</strong> mm. Taking into account the aspect ratio of the image and the canvas, when drawing the grid,
+    you should leave a margin of <strong>1.5</strong> mm above and below the image, as well as <strong>1.5</strong> mm on each side.
+    It is important that the dimensions of each cell of the grid must be <strong>7x7</strong> mm during the drawing process.
+</p>
+
+<img class="full" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/grid.png" alt="Image">
+
+<hr/>
+<div class="center">
+    <h2 class="top">Step #3</h2>
+    <h4>Filling in colours</h4>
+</div>
+
+<p>
+    Here you can find the numbered colours, with the corresponding value above each colour.
+    You can find the RGB value of each colour if you want to recreate the image in digital form, but it can also help you to mix your own colour.
+    So you don't have to do a lot of searching in the grid to find out where the places are where you need to apply the colour, next to the color is a preview of your
+    image with showing just the colour you want to apply. The order of the colours so you only need to deal with one colour at a time.
+</p>
+<p>
+    Tip: It can be helpful to print out these documents so you can visually compare the desired color and what you have available.
+    Make sure to use a printer that provides accurate colors to ensure the best results.
+</p>
+<p>
+    Here are the numbered colors, with the corresponding values displayed above each color. You can also find the RGB values for each
+    color if you prefer to recreate the image digitally. A percentage value has also been calculated, indicating what percentage of the image is
+    represented by each color. By knowing the percentage value of each color, you can determine how much of each color you need to mix if you decide
+    to create your own colors. This allows you to have a better estimate of the quantities required for your custom colors.
+    To make it easier for you to locate the positions where each color needs to be applied in the grid, there is a preview of
+    your image next to it, showing only the specific color. The colors are arranged in a specific order, allowing you to focus on one color at a time.
+    This way, you can work with one color at a time without having to search through the entire grid.
+</p>
+<p class="center"><strong>Have fun!</strong></p>
+
+<table class="threequarters center" style="page-break-before: always;">
+
+    
+        <tr>
+            <th class="center">Color #0 RGB: (7, 35, 70)</th>
+            <th class="center">Placements (4.54% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_0.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_0.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #1 RGB: (20, 22, 23)</th>
+            <th class="center">Placements (4.42% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_1.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_1.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #2 RGB: (22, 30, 35)</th>
+            <th class="center">Placements (8.79% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_2.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_2.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #3 RGB: (25, 34, 57)</th>
+            <th class="center">Placements (6.2% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_3.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_3.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #4 RGB: (29, 58, 127)</th>
+            <th class="center">Placements (5.03% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_4.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_4.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #5 RGB: (30, 46, 79)</th>
+            <th class="center">Placements (7.3% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_5.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_5.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #6 RGB: (30, 49, 103)</th>
+            <th class="center">Placements (6.01% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_6.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_6.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #7 RGB: (38, 65, 37)</th>
+            <th class="center">Placements (4.54% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_7.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_7.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #8 RGB: (56, 96, 170)</th>
+            <th class="center">Placements (0.63% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_8.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_8.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #9 RGB: (61, 99, 42)</th>
+            <th class="center">Placements (3.08% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_9.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_9.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #10 RGB: (83, 126, 52)</th>
+            <th class="center">Placements (4.08% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_10.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_10.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #11 RGB: (98, 105, 104)</th>
+            <th class="center">Placements (4.32% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_11.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_11.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #12 RGB: (103, 152, 216)</th>
+            <th class="center">Placements (0.68% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_12.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_12.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #13 RGB: (105, 144, 54)</th>
+            <th class="center">Placements (3.59% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_13.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_13.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #14 RGB: (111, 146, 24)</th>
+            <th class="center">Placements (1.32% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_14.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_14.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #15 RGB: (125, 164, 56)</th>
+            <th class="center">Placements (2.64% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_15.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_15.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #16 RGB: (127, 145, 82)</th>
+            <th class="center">Placements (1.95% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_16.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_16.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #17 RGB: (144, 40, 26)</th>
+            <th class="center">Placements (0.39% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_17.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_17.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #18 RGB: (153, 154, 135)</th>
+            <th class="center">Placements (3.32% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_18.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_18.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #19 RGB: (160, 179, 84)</th>
+            <th class="center">Placements (1.68% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_19.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_19.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #20 RGB: (178, 179, 41)</th>
+            <th class="center">Placements (0.73% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_20.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_20.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #21 RGB: (184, 184, 160)</th>
+            <th class="center">Placements (3.59% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_21.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_21.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #22 RGB: (215, 212, 184)</th>
+            <th class="center">Placements (4.2% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_22.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_22.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #23 RGB: (234, 25, 6)</th>
+            <th class="center">Placements (1.15% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_23.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_23.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #24 RGB: (240, 207, 76)</th>
+            <th class="center">Placements (0.46% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_24.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_24.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #25 RGB: (248, 241, 212)</th>
+            <th class="center">Placements (3.25% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_25.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_25.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #26 RGB: (249, 252, 237)</th>
+            <th class="center">Placements (3.59% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_26.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_26.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #27 RGB: (252, 93, 6)</th>
+            <th class="center">Placements (3.54% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_27.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_27.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #28 RGB: (252, 247, 38)</th>
+            <th class="center">Placements (0.85% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_28.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_28.png" alt="Image">
+            </td>
+        </tr>
+        
+            <tr>
+                <td colspan="2" class="center">
+                    <hr/>
+                </td>
+            </tr>
+        
+        
+    
+        <tr>
+            <th class="center">Color #29 RGB: (254, 241, 4)</th>
+            <th class="center">Placements (4.13% of the image)</th>
+        </tr>
+        <tr>
+            <td class="center half">
+                <img class="full preview border" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/color_29.png" alt="Image">
+            </td>
+            <td class="full">
+                <img class="full preview" src="/home/deni/Cloud/Laptop/Projects/Python/pixel_art/assets/placement_29.png" alt="Image">
+            </td>
+        </tr>
+        
+        
+    
+
+</table>
+<h1 class="center" style="margin-top: 100px;">Congratulations, you're done!</h1>
+<p class="center">
+    If this little program was helpful to you and you brought one of your ideas to life, I would love to see a picture of it at dani@balintdaniel.com! :)
+</p>

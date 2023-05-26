@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+}
+
+p {
+    font-size: 20px;
+    text-indent: 1em;
+}
+
+.full {
+    width: 100%;
+}
+
+.half {
+    width: 50%;
+}
+
+.threequarters {
+    width: 75%;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.top {
+    margin-top: 70px;
+}
+
+.red {
+    color: red;
+}
+
+.preview {
+    image-rendering: pixelated;
+}

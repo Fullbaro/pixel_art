@@ -132,21 +132,28 @@ class PixelArt:
         print("Colors sorted")
 
     def calculate_grid(self):
+        pixel_w = self.grid_w / self.image_width
+
+
         try:
             pixel_w = self.grid_w / self.image_width
             pixel_h = self.grid_h / self.image_height
-            self.pixel_size = math.floor(pixel_w if pixel_w < pixel_h else pixel_h)
-
-            fit = int(min(self.grid_w / self.pixel_size, self.grid_h / self.pixel_size))
-            side_border = self.grid_w - fit * self.pixel_size
-            top_border = self.grid_h - fit * self.pixel_size
-
+            self.pixel_size = self.custom_round(pixel_w if pixel_w < pixel_h else pixel_h)
             self.data["pixel_size"] = f"{self.pixel_size}x{self.pixel_size}"
-            self.data["top_border"] = top_border / 2
-            self.data["side_border"] = side_border / 2
+
+            self.data["top_border"] = math.floor(self.grid_w - self.pixel_size * self.image_width) / 2
+            self.data["side_border"] = math.floor(self.grid_h - self.pixel_size * self.image_height) / 2
+
             print("Grid dimensions calculated")
         except ZeroDivisionError:
             sys.exit("Your image is too big for the canvas!")
+
+    def custom_round(self, number):
+        rounded = round(number, 1)
+        if rounded > int(number)+0.5:
+            return int(number)+0.5
+        elif rounded < int(number)+0.5:
+            return int(number)
 
     def generate_grid(self):
         cell_size = 30

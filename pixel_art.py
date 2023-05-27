@@ -1,5 +1,6 @@
 import os
 import cv2
+import sys
 import glob
 import math
 import numpy as np
@@ -93,17 +94,20 @@ class PixelArt:
         print("Contrast set")
 
     def reduce_colors(self): # Clasters the pixels to reduce colors variance
-        self.data["original_color_count"] = len(np.unique(self.image.reshape(-1, 3), axis=0))
+        try:
+            self.data["original_color_count"] = len(np.unique(self.image.reshape(-1, 3), axis=0))
 
-        img = np.array(self.image, dtype=np.float64) / 255
-        image_array = np.reshape(img, (self.image_width * self.image_height, 3))
-        image_array_sample = shuffle(image_array, random_state=0, n_samples=1_000)
-        kmeans = KMeans(n_clusters=self.reduce, n_init="auto", random_state=0).fit(image_array_sample)
-        labels = kmeans.predict(image_array)
+            img = np.array(self.image, dtype=np.float64) / 255
+            image_array = np.reshape(img, (self.image_width * self.image_height, 3))
+            image_array_sample = shuffle(image_array, random_state=0, n_samples=1_000)
+            kmeans = KMeans(n_clusters=self.reduce, n_init="auto", random_state=0).fit(image_array_sample)
+            labels = kmeans.predict(image_array)
 
-        reduced = kmeans.cluster_centers_[labels].reshape(self.image_height, self.image_width, -1) * 255
-        self.image = reduced.astype(np.uint8)
-        self.save("reduced", self.image, True)
+            reduced = kmeans.cluster_centers_[labels].reshape(self.image_height, self.image_width, -1) * 255
+            self.image = reduced.astype(np.uint8)
+            self.save("reduced", self.image, True)
+        except ValueError:
+            sys.exit(f"Wrong scale or color variance values. Please correct them!")
         print("Color count reduced")
 
     def collect_colors(self): # Collect new unique colors and add a 4. value. % = what percentage of the total image is represented by a given pixel
@@ -128,18 +132,21 @@ class PixelArt:
         print("Colors sorted")
 
     def calculate_grid(self):
-        pixel_w = self.grid_w / self.image_width
-        pixel_h = self.grid_h / self.image_height
-        self.pixel_size = math.floor(pixel_w if pixel_w < pixel_h else pixel_h)
+        try:
+            pixel_w = self.grid_w / self.image_width
+            pixel_h = self.grid_h / self.image_height
+            self.pixel_size = math.floor(pixel_w if pixel_w < pixel_h else pixel_h)
 
-        fit = int(min(self.grid_w / self.pixel_size, self.grid_h / self.pixel_size))
-        side_border = self.grid_w - fit * self.pixel_size
-        top_border = self.grid_h - fit * self.pixel_size
+            fit = int(min(self.grid_w / self.pixel_size, self.grid_h / self.pixel_size))
+            side_border = self.grid_w - fit * self.pixel_size
+            top_border = self.grid_h - fit * self.pixel_size
 
-        self.data["pixel_size"] = f"{self.pixel_size}x{self.pixel_size}"
-        self.data["top_border"] = top_border / 2
-        self.data["side_border"] = side_border / 2
-        print("Grid dimensions calculated")
+            self.data["pixel_size"] = f"{self.pixel_size}x{self.pixel_size}"
+            self.data["top_border"] = top_border / 2
+            self.data["side_border"] = side_border / 2
+            print("Grid dimensions calculated")
+        except ZeroDivisionError:
+            sys.exit("Your image is too big for the canvas!")
 
     def generate_grid(self):
         cell_size = 30

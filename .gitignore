@@ -153,3 +153,4 @@ cython_debug/
 
 /assets/*png
 *pdf
+/assets/document.html

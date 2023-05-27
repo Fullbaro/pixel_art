@@ -28,7 +28,8 @@ class PixelArt:
             "contrast":  contrast,
             "canvas_w":  canvas_w,
             "canvas_h":  canvas_h,
-            "scale": scale
+            "scale": scale,
+            "working_dir": os.getcwd()
         }
 
     def start(self):
@@ -63,11 +64,10 @@ class PixelArt:
             new_height = int(img.shape[0] * (new_width / img.shape[1]))
             img = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_NEAREST)
 
-        cv2.imwrite(f"/home/deni/Cloud/Laptop/Projects/Python/pixel_art/V2/assets/{name}.png", cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
+        cv2.imwrite(self.data["working_dir"]+f"/assets/{name}.png", cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
 
     def delete(self, file):
-        folder_path = "/home/deni/Cloud/Laptop/Projects/Python/pixel_art/V2/assets"
-        files = glob.glob(os.path.join(folder_path, file))
+        files = glob.glob(os.path.join(self.data["working_dir"]+"/assets", file))
         for file_path in files:
             os.remove(file_path)
         print("Previus data deleted")

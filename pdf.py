@@ -1,14 +1,10 @@
 import jinja2
 import pdfkit
-import os
 
 class PDF:
 
     def __init__(self, data):
-        self.context = {
-            "working_dir": os.getcwd()
-        }
-        self.context.update(data)
+        self.context = data
 
     def start(self):
         template_loader = jinja2.FileSystemLoader("./")

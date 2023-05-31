@@ -108,8 +108,25 @@
     It is important that the dimensions of each cell of the grid must be <strong>{{pixel_size}}</strong> mm during the drawing process.
 </p>
 <p>
+    All measurements are rounded to a precision of 0.5 mm, as this is the smallest increment that can be realistically processed.
     If the size of the cells are too small, try to even reduce the image size more or use  bigger canvas. It is very hard to paint small squares...
 </p>
+
+<table>
+    <tr>
+        <td class="center half">
+            Tip: If you are manually drawing the grid, use a measuring tape to mark the endpoints of the lines on each side.
+            This way, you can accurately measure the distance from the corners, ensuring they are in the correct positions.
+            If you mark the points relative to each other, they may shift and the grid won't be uniform. Afterward, you just need to connect the points.
+            If you add the cell size to itself in a calculator and continuously press the equals button, you will get a sequence of positions where
+            you need to mark along the measuring tape.
+        </td>
+        <td>
+            <img class="full preview" src="{{working_dir}}/assets/canvas.jpg" alt="Image">
+        </td>
+    </tr>
+</table>
+<hr/>
 
 <img class="full" src="{{working_dir}}/assets/grid.png" alt="Image">
 
